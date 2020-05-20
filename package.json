@@ -1,0 +1,34 @@
+{
+  "name": "material-form-redux",
+  "version": "0.1.0",
+  "description": "Build Forms using Material UI, Proptype and Redux",
+  "main": "Form",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caherrera/material-form-redux.git"
+  },
+  "keywords": [
+    "React",
+    "Json",
+    "Material",
+    "Redux"
+  ],
+  "author": "Carlos Herrera",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/caherrera/material-form-redux/issues"
+  },
+  "homepage": "https://github.com/caherrera/material-form-redux#readme",
+  "devDependencies": {
+    "jest": "^26.0.1"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.9.14",
+    "@material-ui/icons": "^4.9.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1"
+  }
+}
