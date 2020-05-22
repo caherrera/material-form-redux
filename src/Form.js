@@ -1,11 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import Input from "Input";
-import Radio from "Radio";
-import Checkbox from "Checkbox";
-import Select from "Select";
-import Button from 'FormButton';
-import {ButtonEnviar} from "./BootstrapParameters";
+import renderFields from "./Material/RenderFields";
+import FormHeader from "./Material/FormHeader";
 
 class FormTag extends React.Component {
     constructor(props) {
@@ -44,48 +40,7 @@ class FormTag extends React.Component {
         return this.props.onChange(e);
     }
 
-    renderFields(_fieldset) {
-        const fieldset = _fieldset instanceof Array ? {
-            inline: false,
-            fields: _fieldset
-        } : _fieldset;
-        let legend;
-        // console.log('******** fieldset ********');
-        // console.log(_fieldset);
-        // console.log(fieldset);
-        // console.log('******** fieldset ********');
-        const fields = fieldset.fields.map(i => {
-            let input;
-            i.required = Boolean(i.required);
-            const colSize = typeof i.colSize === "object" ? i.colSize : {xs: i.colSize || 12};
 
-            switch (i.type || 'text') {
-                case 'legend':
-                    legend = <legend>{i.label}</legend>;
-                    break;
-                case 'checkbox':
-                    input = <FormCheckbox {...i} options={i.options}/>;
-                    break;
-                case 'radio':
-                    input = <FormRadio {...i} options={i.options}/>;
-                    break;
-                case 'select':
-                    input = <FormSelect {...i} options={i.options}/>;
-                    break;
-                case 'tipo_documento':
-                    input = <FormInputDocumentType {...i} options={i.options || []}/>;
-                    break;
-                case 'visibilidad':
-                    input = <FormInputVisibility {...i} options={i.options || []}/>;
-                    break;
-                default:
-                    input = <FormInput {...i} />;
-            }
-            return input && <Col {...colSize}>{input}</Col>;
-        });
-        const rowTag = <Row>{fields}</Row>;
-        return legend ? <fieldset>{legend}{rowTag}</fieldset> : rowTag;
-    }
 
     renderButtons(buttons) {
         // console.log(buttons);
@@ -135,7 +90,7 @@ class FormTag extends React.Component {
             });
 
         return fields
-            .map(this.renderFields);
+            .map(renderFields);
     }
 
     render() {
@@ -147,7 +102,7 @@ class FormTag extends React.Component {
 
         const fieldSet = this.renderAllFieldsets();
         const buttons = this.props.buttons.map(this.renderButtons);
-        const title = this.props.title && <Row><Col><h4>{this.props.title}</h4></Col></Row>;
+        const title = this.props.title && <FormHeader>{this.props.title}</FormHeader>;
         const subtitle = this.props.subtitle &&
             <Row className="pt-3 pb-4"><Col><h5>{this.props.subtitle}</h5></Col></Row>;
 
