@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import renderFields from "./Material/RenderFields";
-import FormHeader from "./Material/FormHeader";
+import renderFields from "./RenderFields";
+import FormHeader from "./FormHeader";
 
 class FormTag extends React.Component {
     constructor(props) {
@@ -121,8 +121,8 @@ FormTag.propTypes = {
     title: PropTypes.string,
     subtitle: PropTypes.string,
     between: PropTypes.string,
-    onChange: PropTypes.func.isRequired,
-    onSubmit: PropTypes.func.isRequired,
+    onChange: PropTypes.func,
+    onSubmit: PropTypes.func,
     onReset: PropTypes.func,
     fields: PropTypes.array.isRequired,
     buttons: PropTypes.array,
